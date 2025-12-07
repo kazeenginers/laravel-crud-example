@@ -2,28 +2,35 @@
 <html>
 <head>
     <title>Tambah Siswa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<h2>Tambah Siswa</h2>
+<div class="container mt-5">
+    <h2 class="mb-4">➕ Tambah Siswa</h2>
 
-<form action="{{ route('siswa.store') }}" method="POST">
-    @csrf
+    <form action="{{ route('siswa.store') }}" method="POST">
+        @csrf
 
-    <label>Nama:</label><br>
-    <input type="text" name="nama" required><br><br>
+        <div class="mb-3">
+            <label>Nama Siswa</label>
+            <input type="text" name="nama" class="form-control" required>
+        </div>
 
-    <label>Kelas:</label><br>
-    <input type="text" name="kelas" required><br><br>
+        <div class="mb-3">
+            <label>Kelas</label>
+            <input type="text" name="kelas" class="form-control" required>
+        </div>
 
-    <label>Jurusan:</label><br>
-    <input type="text" name="jurusan" required><br><br>
+        <div class="mb-3">
+            <label>Jurusan</label>
+            <input type="text" name="jurusan" class="form-control" required>
+        </div>
 
-    <button type="submit">Simpan</button>
-</form>
-
-<br>
-<a href="{{ route('siswa.index') }}">Kembali</a>
+        <button type="submit" class="btn btn-success">Simpan</button>
+        <a href="{{ route('siswa.index') }}" class="btn btn-secondary">Kembali</a>
+    </form>
+</div>
 
 </body>
 </html>

@@ -2,29 +2,36 @@
 <html>
 <head>
     <title>Edit Siswa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<h2>Edit Data Siswa</h2>
+<div class="container mt-5">
+    <h2 class="mb-4">✏️ Edit Data Siswa</h2>
 
-<form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
-    @csrf
-    @method('PUT')
+    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
+        @csrf
+        @method('PUT')
 
-    <label>Nama:</label><br>
-    <input type="text" name="nama" value="{{ $siswa->nama }}" required><br><br>
+        <div class="mb-3">
+            <label>Nama Siswa</label>
+            <input type="text" name="nama" class="form-control" value="{{ $siswa->nama }}" required>
+        </div>
 
-    <label>Kelas:</label><br>
-    <input type="text" name="kelas" value="{{ $siswa->kelas }}" required><br><br>
+        <div class="mb-3">
+            <label>Kelas</label>
+            <input type="text" name="kelas" class="form-control" value="{{ $siswa->kelas }}" required>
+        </div>
 
-    <label>Jurusan:</label><br>
-    <input type="text" name="jurusan" value="{{ $siswa->jurusan }}" required><br><br>
+        <div class="mb-3">
+            <label>Jurusan</label>
+            <input type="text" name="jurusan" class="form-control" value="{{ $siswa->jurusan }}" required>
+        </div>
 
-    <button type="submit">Update</button>
-</form>
-
-<br>
-<a href="{{ route('siswa.index') }}">Kembali</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ route('siswa.index') }}" class="btn btn-secondary">Kembali</a>
+    </form>
+</div>
 
 </body>
 </html>
